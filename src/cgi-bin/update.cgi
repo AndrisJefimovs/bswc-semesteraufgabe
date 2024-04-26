@@ -13,14 +13,14 @@ def handle_get():
     skeleton = open("../layouts/skeleton.html")
     # placeholders in HTML file can be populated with information
     response += "Content-Type: text/html\n"
-    response +=  skeleton.read().format(nav="Herzlich willkommen!")
+    response +=  skeleton.read().format(nav="Herzlich willkommen!", main="")
 
 
 def handle_post():
     global response
     skeleton = open("../layouts/skeleton.html")
     response += "Content-Type: text/html\n"
-    response +=  skeleton.read()
+    response +=  skeleton.read().format(nav="Herzlich willkommen!", main="")
 
 
 def handle_error():
