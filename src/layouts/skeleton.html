@@ -5,7 +5,7 @@
         <title>requirements.txt-Generator</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content="requirements.txt-Generator" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="../layouts/style.css" />
     </head>
     <body>
         <header>
@@ -15,11 +15,32 @@
             {nav}
         </nav>
         <main>
+            <section>
+                <ul id="entries">
+                    
+                </ul>
+            </section>
+            <section>
+                <ul id="entries">
+                    
+                </ul>
+            </section>
+            <section>
+                <textarea></textarea>
+                <aside>
+                    <button id="btn-download">Herunterladen</button>
+                    <button id="btn-copy">In die Zwischenablage kopieren</button>
+                    <button id="btn-share">Teilen</button>
+                </aside>
+            </section>
+
+            <pre>
             {main}
+            </pre>
         </main>
         <footer>
             <small>© <script>document.write(new Date().getFullYear())</script> Lukas Lang-Lajend&auml;cker, Andris Jefimovs</small>
         </footer>
-        <script src="app.js"></script>
+        <script src="../layouts/script.js"></script>
     </body>
 </html>
