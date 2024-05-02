@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- encoding: utf-8 -*-
 
-import os, cgi
-
+import os, cgi, cgitb
+cgitb.enable()
 form = cgi.FieldStorage()
 
 response = ""
@@ -12,15 +12,18 @@ def handle_get():
     global response
     skeleton = open("../layouts/skeleton.html")
     # placeholders in HTML file can be populated with information
-    response += "Content-Type: text/html\n"
-    response +=  skeleton.read().format(nav="Herzlich willkommen!", main="")
+    response += "Content-Type: text/html\n\n"
+    response +=  skeleton.read().format(nav="Herzlich willkommen!", main=form)
 
 
 def handle_post():
     global response
     skeleton = open("../layouts/skeleton.html")
-    response += "Content-Type: text/html\n"
-    response +=  skeleton.read().format(nav="Herzlich willkommen!", main="")
+    response += "Content-Type: text/html\n\n"
+    post_main = ""
+    for f in form:
+        post_main += f + ' = ' + form[f].value + '\n'
+    response +=  skeleton.read().format(nav="Herzlich willkommen im POST!", main=post_main)
 
 
 def handle_error():
