@@ -1,0 +1,4 @@
+body::before {
+    content: "\2022 CSS geladen";
+    color: darkgreen;
+}

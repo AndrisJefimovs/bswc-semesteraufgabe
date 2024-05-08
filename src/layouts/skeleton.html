@@ -5,7 +5,7 @@
         <title>requirements.txt-Generator</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content="requirements.txt-Generator" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="../layouts/style.css" />
     </head>
     <body>
         <header>
@@ -15,11 +15,73 @@
             {nav}
         </nav>
         <main>
+            <section>
+				<form>
+					<label for="input-type">Art</label>
+					<input id="input-type" type="text" list="l-types" />
+					<datalist id="l-types">
+						<option>Name</option>
+						<option>URL</option>
+						<option>Lokal</option>
+					</datalist>
+					<label for="input-name">Name</label>
+					<input id="input-name" type="text" list="l-names" />
+					<datalist id="l-names">
+						<option>numpy</option>
+						<option>opencv</option>
+						<option>time</option>
+					</datalist>
+					<label for="cb-start">von</label>
+					<input id="cb-start" type="checkbox" list="l-start" />
+					<label for="input-start">Version</label>
+					<input id="input-start" type="text" list="l-end" />
+					<datalist id="l-start">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</datalist>
+					<label for="cb-end">bis</label>
+					<input id="cb-end" type="checkbox" />
+					<label for="input-end">Version</label>
+					<input id="input-end" type="text" list="l-end" />
+					<datalist id="l-end">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</datalist>
+					<label for="input-custom">Benutzerdef.</label>
+					<input id="input-custom" type="text" />
+					<button id="btn-new-package">+</button>
+				</form>
+                <ul id="entries">
+                    
+                </ul>
+            </section>
+            <section>
+                <label for="input-r">-r</label>
+                <input id="input-r" />
+                <button id="input-r">+</button>
+                <label for="input-c">-c</label>
+                <input id="input-c" />
+                <button id="input-c">+</button>
+            </section>
+            <section>
+                <textarea></textarea>
+                <button id="btn-generate">gen</button>
+                <aside>
+                    <button id="btn-download">Herunterladen</button>
+                    <button id="btn-copy">In die Zwischenablage kopieren</button>
+                    <button id="btn-share">Teilen</button>
+                </aside>
+            </section>
+
+            <pre>
             {main}
+            </pre>
         </main>
         <footer>
             <small>© <script>document.write(new Date().getFullYear())</script> Lukas Lang-Lajend&auml;cker, Andris Jefimovs</small>
         </footer>
-        <script src="app.js"></script>
+        <script src="../layouts/script.js"></script>
     </body>
 </html>
