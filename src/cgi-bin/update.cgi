@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # -*- encoding: utf-8 -*-
 
+#import create_txt
+
 import os, cgi, cgitb
 cgitb.enable()
 form = cgi.FieldStorage()
@@ -18,12 +20,11 @@ def handle_get():
 
 def handle_post():
     global response
-    skeleton = open("../layouts/skeleton.html")
     response += "Content-Type: text/html\n\n"
-    post_main = ""
+    res = ""
     for f in form:
-        post_main += f + ' = ' + form[f].value + '\n'
-    response +=  skeleton.read().format(nav="Herzlich willkommen im POST!", main=post_main)
+        res += f + ' = ' + form[f].value + '\n'
+    response += res 
 
 
 def handle_error():
