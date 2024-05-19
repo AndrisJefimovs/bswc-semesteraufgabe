@@ -12,6 +12,8 @@ const entriesField = document.querySelector("#entries");
 const generateBtn = document.querySelector("#btn-generate");
 const outputField = document.querySelector("#output");
 
+const clipboardBtn = document.querySelector("#btn-copy");
+
 entries = {
     packages: [],
 	c: [],
@@ -33,7 +35,7 @@ const addEntry = _ => {
 const updateList = _ => {
 	let newMarkup = "";
     entries.packages.forEach(entry => {
-       newMarkup += `<li><p>${entry.name}</p></li>`; 
+       newMarkup += `<li><span>${entry.type}</span><span>${entry.name}</span><span>${entry.startVerDefined}</span><span>${entry.startVer}</span><span>${entry.endVerDef}</span><span>${entry.endVer}</span><span>${entry.custom}</span></li>`; 
 	});
 	entriesField.innerHTML = newMarkup;
 };
@@ -52,4 +54,10 @@ generateRequirementsTxt = async _ => {
 };
 
 generateBtn.onclick = generateRequirementsTxt;
+
+btnCopy.onclick = e => {
+    outputField.select();
+	outputField.setSelectionRange(0, 99999);
+	navigator.clipboard.writeText(outputField.value);
+};
 

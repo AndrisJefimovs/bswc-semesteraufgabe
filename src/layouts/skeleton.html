@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8">
         <title>requirements.txt-Generator</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="description" content="requirements.txt-Generator" />
-        <link rel="stylesheet" type="text/css" href="../layouts/style.css" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="requirements.txt-Generator">
+        <link rel="stylesheet" type="text/css" href="../layouts/style.css">
     </head>
     <body>
         <header>
@@ -16,41 +16,42 @@
         </nav>
         <main>
             <section>
+			    <h2>Eingaben</h2>
 				<form>
 					<label for="input-type">Art</label>
-					<input id="input-type" type="text" list="l-types" />
+					<input id="input-type" type="text" list="l-types">
 					<datalist id="l-types">
 						<option>Name</option>
 						<option>URL</option>
 						<option>Lokal</option>
 					</datalist>
 					<label for="input-name">Name</label>
-					<input id="input-name" type="text" list="l-names" />
+					<input id="input-name" type="text" list="l-names">
 					<datalist id="l-names">
 						<option>numpy</option>
 						<option>opencv</option>
 						<option>time</option>
 					</datalist>
 					<label for="cb-start">von</label>
-					<input id="cb-start" type="checkbox" list="l-start" />
+					<input id="cb-start" type="checkbox" list="l-start">
 					<label for="input-start">Version</label>
-					<input id="input-start" type="text" list="l-end" />
+					<input id="input-start" type="text" list="l-end">
 					<datalist id="l-start">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 					</datalist>
 					<label for="cb-end">bis</label>
-					<input id="cb-end" type="checkbox" />
+					<input id="cb-end" type="checkbox">
 					<label for="input-end">Version</label>
-					<input id="input-end" type="text" list="l-end" />
+					<input id="input-end" type="text" list="l-end">
 					<datalist id="l-end">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 					</datalist>
 					<label for="input-custom">Benutzerdef.</label>
-					<input id="input-custom" type="text" />
+					<input id="input-custom" type="text">
 					<button id="btn-new-package">+</button>
 				</form>
                 <ul id="entries">
@@ -58,14 +59,16 @@
                 </ul>
             </section>
             <section>
+			    <h2>cs und rs</h2>
                 <label for="input-r">-r</label>
-                <input id="input-r" />
-                <button id="input-r">+</button>
+                <input id="input-r">
+                <button id="btn-r">+</button>
                 <label for="input-c">-c</label>
-                <input id="input-c" />
-                <button id="input-c">+</button>
+                <input id="input-c">
+                <button id="btn-c">+</button>
             </section>
             <section>
+			    <h2>Ergebnis</h2>
                 <textarea id="output"></textarea>
                 <button id="btn-generate">gen</button>
                 <aside>
