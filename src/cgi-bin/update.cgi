@@ -3,9 +3,8 @@
 
 #import create_txt
 
-import os, cgi, cgitb
-cgitb.enable()
-form = cgi.FieldStorage()
+import os, cgi, sys, json
+incoming_json = json.load(sys.stdin)
 
 response = ""
 
@@ -20,12 +19,8 @@ def handle_get():
 
 def handle_post():
     global response
-    response += "Content-Type: text/html\n\n"
-    res = ""
-    for f in form:
-        res += f + ' = ' + form[f].value + '\n'
-    response += res 
-
+    response += "Content-Type: text/plain\n\n"
+    response += create_txt()
 
 def handle_error():
 	pass
@@ -48,3 +43,4 @@ else:
 
 
 print(response)
+
