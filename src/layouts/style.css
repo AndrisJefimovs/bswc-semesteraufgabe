@@ -2,3 +2,13 @@ body::before {
     content: "\2022 CSS geladen";
     color: darkgreen;
 }
+
+main {
+    display: flex;
+	flex-wrap: wrap;
+}
+
+main section {
+    flex-basis: 50%;
+}
+
