@@ -7,27 +7,24 @@ const inputEnd = document.querySelector("#input-end");
 const inputCustom = document.querySelector("#input-custom");
 const btnNewPackage = document.querySelector("#btn-new-package");
 
-const outputField = document.querySelector("#entries");
+const entriesField = document.querySelector("#entries");
 
-btnNewPackage.onclick = async e => {
-	e.preventDefault();
+const outputField = document.querySelector("#output");
 
-	const formData = new FormData();
-	formData.append("type", inputType.value);
-	formData.append("name", inputName.value);
-	formData.append("start", cbStart.value);
-	formData.append("startVal", inputStart.value);
-	formData.append("end", cbEnd.value);
-	formData.append("endVal", inputEnd.value);
-	formData.append("custom", inputCustom.value);
+entries = {
+    packages: [],
+	c: [],
+	r: []
+};
 
+generateRequirementsTxt = async _ => {
 	fetch("../cgi-bin/update.cgi", {
 		method: "POST",
-		body: formData
+		body: JSON.stringify(entries)
 	})
-	.then(data => data.text())
-	.then(markup => {
-		console.log(markup);
+	.then(res => res.text())
+	.then(data => {
+		outputField.value = data;	
 	});
-}
+};
 
