@@ -9,6 +9,7 @@ const btnNewPackage = document.querySelector("#btn-new-package");
 
 const entriesField = document.querySelector("#entries");
 
+const generateBtn = document.querySelector("#btn-generate");
 const outputField = document.querySelector("#output");
 
 entries = {
@@ -16,6 +17,28 @@ entries = {
 	c: [],
 	r: []
 };
+
+const addEntry = _ => {
+    entries.packages.push({
+		type: inputType.value,
+        name: inputName.value,
+		startVerDefined: cbStart.checked,
+		startVer: inputStart.value,
+		endVerDef: cbEnd.checked,
+		endVer: inputEnd.value,
+		custom: inputCustom.value
+	});
+};
+
+const updateList = _ => {
+	let newMarkup = "";
+    entries.packages.forEach(entry => {
+       newMarkup += `<li><p>${entry.name}</p></li>`; 
+	});
+	entriesField.innerHTML = newMarkup;
+};
+
+btnNewPackage.onclick = e => {e.preventDefault(); addEntry(); updateList();};
 
 generateRequirementsTxt = async _ => {
 	fetch("../cgi-bin/update.cgi", {
@@ -27,4 +50,6 @@ generateRequirementsTxt = async _ => {
 		outputField.value = data;	
 	});
 };
+
+generateBtn.onclick = generateRequirementsTxt;
 
