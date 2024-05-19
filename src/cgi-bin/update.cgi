@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 # -*- encoding: utf-8 -*-
 
-#import create_txt
+from create_txt import *
 
 import os, cgi, sys, json
-incoming_json = json.load(sys.stdin)
 
 response = ""
 
@@ -14,16 +13,17 @@ def handle_get():
     skeleton = open("../layouts/skeleton.html")
     # placeholders in HTML file can be populated with information
     response += "Content-Type: text/html\n\n"
-    response +=  skeleton.read().format(nav="Herzlich willkommen!", main=form)
+    response +=  skeleton.read().format(nav="Herzlich willkommen!", main="main")
 
 
 def handle_post():
     global response
+    incoming_json = json.load(sys.stdin)
     response += "Content-Type: text/plain\n\n"
-    response += create_txt()
+    response += create_txt(incoming_json)
 
 def handle_error():
-	pass
+    pass
 
 
 # define function to be called on HTTP request type
