@@ -7,11 +7,13 @@ const inputEnd = document.querySelector("#input-end");
 const inputCustom = document.querySelector("#input-custom");
 const btnNewPackage = document.querySelector("#btn-new-package");
 
-const outputField = document.querySelector("#entries");
+const entriesField = document.querySelector("#entries");
 
-btnNewPackage.onclick = async e => {
-	e.preventDefault();
+const outputField = document.querySelector("#output");
 
+
+
+generateRequirementsTxt = async _ => {
 	const formData = new FormData();
 	formData.append("type", inputType.value);
 	formData.append("name", inputName.value);
@@ -25,9 +27,9 @@ btnNewPackage.onclick = async e => {
 		method: "POST",
 		body: formData
 	})
-	.then(data => data.text())
-	.then(markup => {
-		console.log(markup);
+	.then(res => res.text())
+	.then(data => {
+		outputField.value = data;	
 	});
-}
+};
 
