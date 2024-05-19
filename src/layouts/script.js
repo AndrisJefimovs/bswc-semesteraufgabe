@@ -55,7 +55,7 @@ generateRequirementsTxt = async _ => {
 
 generateBtn.onclick = generateRequirementsTxt;
 
-btnCopy.onclick = e => {
+clipboardBtn.onclick = e => {
     outputField.select();
 	outputField.setSelectionRange(0, 99999);
 	navigator.clipboard.writeText(outputField.value);
