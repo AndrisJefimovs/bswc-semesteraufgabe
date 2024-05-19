@@ -9,11 +9,11 @@ def create_txt(entries):
     res = ""
 
     for entry in entries["packages"]:
-        res += entry
+        res += entry["name"]
     for entry in entries["c"]:
-        res += entry
+        res += "c"
     for entry in entries["r"]:
-        res += entry
+        res += "r"
 
     return res
 
