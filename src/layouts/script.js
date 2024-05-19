@@ -11,21 +11,16 @@ const entriesField = document.querySelector("#entries");
 
 const outputField = document.querySelector("#output");
 
-
+entries = {
+    packages: [],
+	c: [],
+	r: []
+};
 
 generateRequirementsTxt = async _ => {
-	const formData = new FormData();
-	formData.append("type", inputType.value);
-	formData.append("name", inputName.value);
-	formData.append("start", cbStart.value);
-	formData.append("startVal", inputStart.value);
-	formData.append("end", cbEnd.value);
-	formData.append("endVal", inputEnd.value);
-	formData.append("custom", inputCustom.value);
-
 	fetch("../cgi-bin/update.cgi", {
 		method: "POST",
-		body: formData
+		body: JSON.stringify(entries)
 	})
 	.then(res => res.text())
 	.then(data => {
