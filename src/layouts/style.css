@@ -1,13 +1,40 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
 main {
     display: flex;
 	flex-wrap: wrap;
 }
 
 main section {
-    flex-basis: 50%;
+    flex-basis: 45%;
+	flex-grow: 1;
+}
+
+form {
+    display: flex;
 }
 
 label {
     display: block;
+}
+
+#entries li {
+    display: flex;
+}
+
+#entries span {
+    display: block;
+	white-space: nowrap;
+	overflow: hidden;
+    width: 12.5%;
+	text-overflow: ellipsis;
 }
 
