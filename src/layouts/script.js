@@ -15,6 +15,14 @@ const outputField = document.querySelector("#output");
 const clipboardBtn = document.querySelector("#btn-copy");
 const downloadBtn = document.querySelector("#btn-download");
 
+const inputR = document.querySelector('#input-r');
+const rBtn = document.querySelector('#btn-r');
+const inputC = document.querySelector('#input-c');
+const cBtn = document.querySelector('#btn-c');
+
+const cField = document.querySelector('#c-field');
+const rField = document.querySelector('#r-field');
+
 entries = {
 packages: [],
 		  c: [],
@@ -32,6 +40,37 @@ endVer: inputEnd.value,
 custom: inputCustom.value
 });
 };
+
+const addC = _ => {
+	entries.c.push({
+		value: inputC.value 
+		});
+};
+
+const addR = _ => {
+	entries.r.push({
+		value: inputR.value
+		});
+};
+
+const updateRList = _ => {
+	let newMarkup = "";
+	entries.r.forEach(r => {
+		newMarkup += `<li><span>${r.value}</span><button>del</button></li>`;
+	});
+	rField.innerHTML = newMarkup;
+};
+
+const updateCList = _ => {
+	let newMarkup = "";
+	entries.c.forEach(r => {
+		newMarkup += `<li><span>${r.value}</span><button>del</button></li>`;
+	});
+	cField.innerHTML = newMarkup;
+};
+
+rBtn.onclick = e => {e.preventDefault(); addR(); updateRList();};
+cBtn.onclick = e => {e.preventDefault(); addC(); updateCList();};
 
 const updateList = _ => {
 	let newMarkup = "";
